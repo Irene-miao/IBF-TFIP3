@@ -16,8 +16,10 @@ public class Main {
         
         Console cons = System.console();
         int tries = 3;
-        String input = cons.readLine("What is your number? (%d)", tries);
-        int num = Integer.parseInt(input);
+        String input;
+        int myGuess;
+        /*String input = cons.readLine("What is your number? (%d)", tries);
+        int num = Integer.parseInt(input);*/
         
 
         /*switch (num) {
@@ -40,7 +42,7 @@ public class Main {
 
         while ((tries > 0 ) && (!win)){
             input = cons.readLine("What is your guess?");
-           int myGuess = Integer.parseInt(input);
+           myGuess = Integer.parseInt(input);
 
             if (myGuess > toGuess) {
                 System.out.print("Lower");

@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: sg.edu.nus.iss.app.AppTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.048 s <<< FAILURE! - in sg.edu.nus.iss.app.AppTest
+testCookieIsNotNull(sg.edu.nus.iss.app.AppTest)  Time elapsed: 0 s  <<< ERROR!
+java.io.FileNotFoundException: cookies_file.txt (The system cannot find the file specified)
+	at sg.edu.nus.iss.app.AppTest.testCookieIsNotNull(AppTest.java:37)
+
+testCookieContainsValue(sg.edu.nus.iss.app.AppTest)  Time elapsed: 0 s  <<< ERROR!
+java.io.FileNotFoundException: cookies_file.txt (The system cannot find the file specified)
+	at sg.edu.nus.iss.app.AppTest.testCookieContainsValue(AppTest.java:30)
+

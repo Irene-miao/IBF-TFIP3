@@ -1,4 +1,3 @@
-
 package sg.edu.nus.iss.app.server;
 
 import java.io.BufferedReader;
@@ -8,9 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -18,27 +15,30 @@ import java.util.Random;
 
 public class Cookie {
     
-    public static String getRandomCookie(String path, String resultPath, String mailMergePath){
+    public static String getRandomCookie(String cookieFilepath, String cookieResultPath, String mailMergePath){
         String randomCookie = "";
         List<String> cookies = new LinkedList<>();
         List<String> cookiesResult = new ArrayList<>();
         try {
-            cookies = getDataFromText(path);
-            cookiesResult = getDataFromText(resultPath);
+            cookies = getDataFromText(cookieFilepath);
+            cookiesResult = getDataFromText(cookieResultPath);
             System.out.println(cookiesResult.size());
             if(cookiesResult.size() == 0){
                 System.out.println("init result file ...");
                 for(int x = 0; x < cookies.size(); x++){
                     cookiesResult.add("");
                 }
-                initCookieResultFile(resultPath, cookies.size());
+                initCookieResultFile(cookieResultPath, cookies.size());
             }
-                
+             
+            // return random number
             Random rand = new Random();
             int randVal = rand.nextInt(cookies.size());
             System.out.println(randVal);
             randomCookie = cookies.get(randVal);
             
+            
+            // not part of requirement
             if(mailMergePath != null ){
                 int charSizeOFRandom = randomCookie.length();
                 String mailMergePara = readMailMergeText(mailMergePath);
@@ -51,7 +51,7 @@ public class Cookie {
             }
             
             writeCookieNametoResultFile(randomCookie, 
-                randVal, cookiesResult, resultPath);
+                randVal, cookiesResult, cookieResultPath);
             System.out.println("RANDOM COOKIE >> " + randomCookie );
         }catch(FileNotFoundException e){
             e.printStackTrace();

@@ -32,6 +32,7 @@ public class ServerApp {
             System.out.println(cookieFile);
 
             //Get the cookie result file
+
             String cookieResultFile = args[2];
             System.out.println(cookieResultFile);
 
@@ -64,7 +65,7 @@ public class ServerApp {
                         String dataFromClient = dis.readUTF();
                         
                         if(dataFromClient.equals("get-cookie")){
-                            String randomCookie = Cookie.getRandomCookie(cookieFile, 
+                            String randomCookie = getRandomCookie(cookieFile, 
                                         cookieResultFile,
                                         mailmergeFile);
                             dos.writeUTF("cookie-text_" + randomCookie);
@@ -95,3 +96,4 @@ public class ServerApp {
         
     }
 }
+

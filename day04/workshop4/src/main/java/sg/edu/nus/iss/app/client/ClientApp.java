@@ -1,4 +1,3 @@
-
 package sg.edu.nus.iss.app.client;
 
 import java.io.Console;
@@ -9,6 +8,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
+
+
 
 public class ClientApp {
     public static void main(String[] args){
@@ -26,19 +27,20 @@ public class ClientApp {
                 OutputStream os = sock.getOutputStream();
                 DataOutputStream dos = new DataOutputStream(os);
                 
+                // Prompt user for response
                 Console cons = System.console();
                 String input = 
                         cons.readLine("Send command to the random cookie "+
                         "server ? ");
 
-                dos.writeUTF(input);
+                dos.writeUTF(input); 
                 dos.flush();
 
                 String response = dis.readUTF();
                 if(response.contains("cookie-text")){
                     String[] cookieValArr = response.split("_");
                     System.out.println("Cookie from the server "
-                            + cookieValArr[1]);
+                            + cookieValArr[0]);
                 }else{
                     System.err.println(response);
                 }

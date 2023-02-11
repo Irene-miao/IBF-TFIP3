@@ -5,7 +5,7 @@ public class FixedDepositAccount extends Account {
     //members
     private float interest = 3;
     private int durationInMonths = 6;
-
+    private static int change = 1;
 
     // constructor
     public FixedDepositAccount(String accountName, float balance) {
@@ -34,33 +34,36 @@ public class FixedDepositAccount extends Account {
     }
 
     public void setInterest(float interest) throws IllegalArgumentException {
-        int change = 0;
-      
-        try {
-            while (change < 2) {
-            this.interest = interest;
-            change++;
-            }
-        } catch (IllegalArgumentException e) {
-            System.out.print(e);;
+        
+       try {
+            while (change < 2 ){
+                this.interest = interest;
+                change++;
+                System.out.println(change);
+            } 
+        } catch (IllegalArgumentException e){
+            e.printStackTrace();
         }
+              
+            }
     
-    }
+    
 
     public int getDurationInMonths() {
         return durationInMonths;
     }
 
     public void setDurationInMonths(int durationInMonths) throws IllegalArgumentException {
-        int change = 0;
-      
-        if (change < 2) {
-            this.durationInMonths = durationInMonths;
+    
+        try {
+            while (change < 2 ){
+                this.durationInMonths = durationInMonths;
             change++;
-        } else {
-            throw new IllegalArgumentException();
+                System.out.println(change);
+            } 
+        } catch (IllegalArgumentException e){
+            e.printStackTrace();
         }
-        
     }
 
 
@@ -72,13 +75,13 @@ public class FixedDepositAccount extends Account {
     }
 
     @Override
-    public void deposit(float amount) throws IllegalArgumentException {
+    public void deposit(float amount) {
     amount = 0;
         super.deposit(amount);
     }
 
     @Override
-    public void withdraw(float amount) throws IllegalArgumentException {
+    public void withdraw(float amount) {
         amount = 0;
         super.withdraw(amount);
     }

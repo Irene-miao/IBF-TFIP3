@@ -16,10 +16,15 @@ public class Main {
         System.out.print(jim.getCreatingDate());
         System.out.print(jim.getClosingDate());*/
         FixedDepositAccount bob = new FixedDepositAccount("Bob", 100);
-        System.out.print("\n"+bob.getBalance());
-        bob.setInterest(4);
-        System.out.print("\n"+bob.getBalance());
+        System.out.println("\n"+bob.getBalance());
+       /*bob.setInterest(4);
+        System.out.println("\n"+bob.getBalance());
         bob.setInterest(5);
-        System.out.print("\n"+bob.getBalance());
+        System.out.println("\n"+bob.getBalance());*/
+        bob.setDurationInMonths(7);
+        System.out.println("\n"+ bob.getDurationInMonths());
+        bob.setDurationInMonths(8);
+        System.out.println("\n"+ bob.getDurationInMonths());
+
     }
 }

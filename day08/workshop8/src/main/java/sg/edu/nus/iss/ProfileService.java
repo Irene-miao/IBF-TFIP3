@@ -34,8 +34,8 @@ public class ProfileService {
         String scannerInput = scanner.nextLine();
 
         while ((line = br.readLine()) != null) {
-line.replaceAll(",", " ");
-line.replaceAll(",", " ");
+line = line.replaceAll(",", " ");
+line = line.replaceAll(".", " ");
 
             buffer = line.split(" ");
 

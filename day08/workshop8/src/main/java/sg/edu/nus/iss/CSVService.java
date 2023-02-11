@@ -42,7 +42,7 @@ public class CSVService {
         fw.close();
     }
       
-      public  List<Employee> readFromCSV(String fullPathFilename) throws FileNotFoundException {
+      public  List<Employee> readFromCSV(String fullPathFilename) throws IOException {
         
         FileReader fr = new FileReader(fullPathFilename);
         BufferedReader br = new BufferedReader(fr);
@@ -54,7 +54,7 @@ public class CSVService {
         line = br.readLine();
 
         while ((line = br.readLine()) != null) {
-// extract data separated by comma
+// extract input data separated by comma
 String[] strEmployee = line.split(COMMA_DELIMITER);
 
 

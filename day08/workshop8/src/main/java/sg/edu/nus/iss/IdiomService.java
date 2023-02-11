@@ -11,6 +11,7 @@ import java.util.Random;
 public class IdiomService {
     public List<String> readFile(String fullPathFileName) throws IOException {
 
+        // open a file for reading line by line 
         File file = new File(fullPathFileName);
         BufferedReader br = new BufferedReader(new FileReader(file));
         
@@ -20,10 +21,12 @@ public class IdiomService {
         // for reading each line to the file
         String line = "";
 
+        // If line exists, add to list
         while ((line = br.readLine()) != null) {
             idiomList.add(line);
         }
 
+        // close reader
         br.close();
 
         return idiomList;

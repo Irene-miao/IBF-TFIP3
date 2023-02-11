@@ -31,8 +31,8 @@ public final class App {
         }
 
         
-        FileService fx = new FileService();
-         Boolean directoryCreated = fx.createDirectory(dirName);
+        FileService fs = new FileService();
+         Boolean directoryCreated = fs.createDirectory(dirName);
 
          if (directoryCreated) {
             System.out.println("Directory created: "+ dirName);
@@ -40,7 +40,7 @@ public final class App {
             System.out.println("Directory already exists: " + dirName);
          }
 
-         Boolean fileCreated = fx.createFile(dirName, fileName);
+         Boolean fileCreated = fs.createFile(dirName, fileName);
 
          
             
@@ -64,7 +64,7 @@ public final class App {
                 String randomIdiom = "";
 
                 displayMenu();
-                conInput = cons.readLine("Enter your selection");
+                conInput = cons.readLine("Enter your selection:");
 
                 switch(conInput) {
                     case "1":
@@ -79,9 +79,8 @@ public final class App {
                         message(randomIdiom);
                         break;
                     case "4":
-                        idiomSvc.showAllIdioms(
+                        idiomSvc.showAllIdioms(idioms);
                         break;
-                        );
                     case "5":
                         ps.readFile();
                         break;   

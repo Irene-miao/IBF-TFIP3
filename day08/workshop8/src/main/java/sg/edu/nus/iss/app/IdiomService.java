@@ -1,4 +1,4 @@
-package sg.edu.nus.iss;
+package sg.edu.nus.iss.app;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -9,45 +9,61 @@ import java.util.List;
 import java.util.Random;
 
 public class IdiomService {
+    
+
+    // read file method
     public List<String> readFile(String fullPathFileName) throws IOException {
 
-        // open a file for reading line by line 
+        // open a file for reading line by line
         File file = new File(fullPathFileName);
         BufferedReader br = new BufferedReader(new FileReader(file));
-        
-        // store read idiom line from file
+
+        // create empty list
         List<String> idiomList = new ArrayList<String>();
 
-        // for reading each line to the file
+        // read each line in file
         String line = "";
 
-        // If line exists, add to list
+        // store each line in list
         while ((line = br.readLine()) != null) {
             idiomList.add(line);
         }
 
-        // close reader
         br.close();
 
-        return idiomList;
+        return idiomList; // return list value
 
     }
 
+
+    // Pick random idiom method
     public String randomIdiom(List<String> idioms) {
+
         Random rand = new Random();
-        
-        String idiom = "";
-        if (idioms != null || idioms.size() > 0) {
-            Integer idiomIndex = rand.nextInt(idioms.size());
-            idiom = idioms.get(idiomIndex);
-        } else {
-            idiom = " No idiom found!";
-        }
-        return idiom;
+
+    String idiom = "";
+
+    // args not empty, get random idioms index no , get idiom
+    if (idioms != null || idioms.size() > 0) {
+        Integer idiomIndex = rand.nextInt(idioms.size());
+        idiom = idioms.get(idiomIndex);
+    } else {
+        idiom = "No idiom found!";
     }
 
+    return idiom;
+    }
+
+
+    
+    // show all idioms method
     public void showAllIdioms(List<String> idioms) {
-        // idioms forEach -> System.out.println(i);
+
         idioms.forEach(System.out::println);
     }
+    
+
+
+
+
 }

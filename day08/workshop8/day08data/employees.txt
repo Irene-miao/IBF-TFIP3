@@ -1,0 +1,5 @@
+staffNo, fullName, department, role email, salary
+1111,Bob Tan,ISS,lect,bob@mail.com,8000,
+2222,Jo Lee,ISS,admin,jo@mail.com,3000,
+3333,Pop Mei,ISS,cleaner,pop@mail.com,2000,
+1234,John Day,ISS,technician,john@mail.com,4000,

@@ -1,30 +1,34 @@
-package sg.edu.nus.iss;
+package sg.edu.nus.iss.app;
 
 public class Employee {
+    
+    // members
     private String staffNo;
     private String fullName;
     private String department;
     private String email;
-    private Integer salary;
     private String role;
+    private Integer salary;
     
     
+    //constructor
     public Employee() {
     }
 
 
-    public Employee(String staffNo, String fullName, String department, String role, String email, Integer salary) {
+    public Employee(String staffNo, String fullName, String department, String email, String role, Integer salary) {
         this.staffNo = staffNo;
         this.fullName = fullName;
         this.department = department;
         this.email = email;
-        this.salary = salary;
         this.role = role;
+        this.salary = salary;
     }
 
 
+    // Getter and setter
     public String getStaffNo() {
-        return staffNo;
+        return this.staffNo;
     }
 
 
@@ -34,7 +38,7 @@ public class Employee {
 
 
     public String getFullName() {
-        return fullName;
+        return this.fullName;
     }
 
 
@@ -44,7 +48,7 @@ public class Employee {
 
 
     public String getDepartment() {
-        return department;
+        return this.department;
     }
 
 
@@ -54,7 +58,7 @@ public class Employee {
 
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
 
@@ -63,18 +67,8 @@ public class Employee {
     }
 
 
-    public Integer getSalary() {
-        return salary;
-    }
-
-
-    public void setSalary(Integer salary) {
-        this.salary = salary;
-    }
-
-
     public String getRole() {
-        return role;
+        return this.role;
     }
 
 
@@ -83,9 +77,17 @@ public class Employee {
     }
 
 
-    
+    public Integer getSalary() {
+        return this.salary;
+    }
 
 
+    public void setSalary(Integer salary) {
+        this.salary = salary;
+    }
+
+
+    // methods
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -94,8 +96,8 @@ public class Employee {
         result = prime * result + ((fullName == null) ? 0 : fullName.hashCode());
         result = prime * result + ((department == null) ? 0 : department.hashCode());
         result = prime * result + ((email == null) ? 0 : email.hashCode());
-        result = prime * result + ((salary == null) ? 0 : salary.hashCode());
         result = prime * result + ((role == null) ? 0 : role.hashCode());
+        result = prime * result + ((salary == null) ? 0 : salary.hashCode());
         return result;
     }
 
@@ -129,15 +131,15 @@ public class Employee {
                 return false;
         } else if (!email.equals(other.email))
             return false;
-        if (salary == null) {
-            if (other.salary != null)
-                return false;
-        } else if (!salary.equals(other.salary))
-            return false;
         if (role == null) {
             if (other.role != null)
                 return false;
         } else if (!role.equals(other.role))
+            return false;
+        if (salary == null) {
+            if (other.salary != null)
+                return false;
+        } else if (!salary.equals(other.salary))
             return false;
         return true;
     }
@@ -146,6 +148,9 @@ public class Employee {
     @Override
     public String toString() {
         return "Employee [staffNo=" + staffNo + ", fullName=" + fullName + ", department=" + department + ", email="
-                + email + ", salary=" + salary + ", role=" + role + "]";
+                + email + ", role=" + role + ", salary=" + salary + "]";
     }
+
+
+    
 }

@@ -4,6 +4,8 @@ import java.io.Console;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -31,7 +33,7 @@ public class App
     {
         
         // if input contains "kill" word, the app will exit
-        if (args.length > 0) {
+        /*if (args.length > 0) {
             if (args[0].equalsIgnoreCase("kill")) {
                 System.out.println("Ending program.. ");
                 System.exit(0);
@@ -107,7 +109,15 @@ public class App
                 default:
                     break;       
             }
-        }
+        }*/
+
+        ServerSocket server = new ServerSocket(12345);
+        Socket sock = server.accept();
+        System.out.printf("Server listen at socket port: %s", sock.getPort());
+        System.out.println("Server started at..." + sock.getLocalSocketAddress().toString());
+        
+        Thread idiomThread = new Thread(new IdiomService(sock, dirFileName));
+        idiomThread.start();
 
         
     }
@@ -170,6 +180,5 @@ public static void displayMenu() {
 public static void message(String line) {
     System.out.println(line);
 }
-
-
 }
+

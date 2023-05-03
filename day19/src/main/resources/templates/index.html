@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day19</title>
+</head>
+<body>
+    <h1>Love Calculator</h1>
+    <form
+    method="POST" 
+    data-th-action="@{/lovecount}" 
+    data-th-object="${love}"
+    >
+    <input type="text" data-th-field="*{fsname}" class="fsname" />
+    <label for="fsname">Male Name</label>
+    <span
+      class="error"
+      data-th-if="${#fields.hasErrors('fsname')}"
+      data-th-errors="*{fsname}"
+    ></span>
+    <input type="text" data-th-field="*{sname}" class="sname" />
+    <label for="sname">Female Name</label>
+    <span
+      class="error"
+      data-th-if="${#fields.hasErrors('sname')}"
+      data-th-errors="*{sname}"
+    ></span>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

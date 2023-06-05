@@ -25,7 +25,7 @@ public class BoardGamesRepository {
         Query query = new Query();
         Pageable pageable = PageRequest.of(offset, limit);
         query.with(pageable);
-        return mongoTemplate.find(query, Document.class, "games").stream()
+        return mongoTemplate.find(query, Document.class, "game").stream()
         .map(d -> Game.create(d)).toList();
 
     }
@@ -35,14 +35,14 @@ public class BoardGamesRepository {
         Pageable pageable = PageRequest.of(offset, limit);
         query.with(pageable);
         query.with(Sort.by(Sort.Direction.ASC, "ranking"));
-        return mongoTemplate.find(query, Document.class, "games").stream().map(d -> Game.create(d)).toList();
+        return mongoTemplate.find(query, Document.class, "game").stream().map(d -> Game.create(d)).toList();
     }
 
     public Game getBoardGameById(Integer gameId) {
         Query query = new Query();
         query.addCriteria(Criteria.where("gid").is(gameId));
 
-        return mongoTemplate.findOne(query, Game.class, "games");
+        return mongoTemplate.findOne(query, Game.class, "game");
     }
    
 }

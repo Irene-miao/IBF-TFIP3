@@ -1,0 +1,60 @@
+<form [formGroup]="todoForm" (submit)="processTask()">
+   <table>
+    <tr>
+        <td>
+            Title
+        </td>
+        <td>
+            <input type="text" size="30" placeholder="Title" formControlName="title">
+            <span *ngIf="invalidField('title')">
+                Please enter a valid title
+            </span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Name
+        </td>
+        <td>
+            <input type="text" size="30" placeholder="Name" formControlName="name">
+            <span *ngIf="invalidField('name')">
+                Please enter a valid name
+            </span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button type="submit">Save</button>
+            <button type="button" (click)="addTask()">Add Task</button>
+        </td>
+    </tr>
+   </table>
+
+  <table *ngIf="tasksArr.length > 0">
+    <thead>
+        <tr>
+            <th>Tasks</th>
+            <th>Priority</th>
+            <th>Due Date</th>
+        </tr>
+    </thead>
+    <tbody formArrayName="tasksArr">
+        <tr *ngFor="let t of tasksArr.controls; let i = index" [formGroupName]="i">
+            <td>
+                <input type="text" size="40" formControlName="task">
+            </td>
+            <td>
+                L <input type="radio" value="low" formControlName="priority">
+                M <input type="radio" value="med" formControlName="priority">
+                H <input type="radio" value="high" formControlName="priority">
+            </td>
+            <td>
+                <input type="datetime-local" formControlName="dueDate">
+            </td>
+            <td>
+                <button type="button" (click)="removeTask(i)">X</button>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+</form>

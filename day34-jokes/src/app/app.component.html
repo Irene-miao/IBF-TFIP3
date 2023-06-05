@@ -1,0 +1,11 @@
+<div (click)="pressed()">
+  <div *ngIf="resp$ | async as r else noJoke">
+    <div>Setup: {{ r.setup }}</div>
+    <div> Punchline : {{ r.punchline }}</div>
+  </div>
+</div>
+
+
+<ng-template #noJoke>
+Press to get a joke
+</ng-template>

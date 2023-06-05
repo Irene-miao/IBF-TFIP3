@@ -1,0 +1,4 @@
+<h1>To Do</h1>
+
+<app-createtodo (onNewTask)="newTask($event)" [todo]="todo"></app-createtodo>
+<app-todolist [todos]="todos" (onSelectedTodo)="selectedTodo($event)"></app-todolist>

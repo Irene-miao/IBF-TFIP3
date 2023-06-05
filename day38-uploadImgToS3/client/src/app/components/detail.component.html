@@ -1,0 +1,33 @@
+<div>
+    <table>
+        <tr>
+            <td></td>
+            <td>
+                <button [routerLink]="['/list']">Back</button>
+            </td>
+        </tr>
+        <tr>
+          <td>Image key:</td>
+          <td>
+            <input type="text" size="30" #imageKey>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <button type="button" (click)="getImage()">get image</button>
+          </td>
+        </tr>
+        <br>
+       
+      </table>
+      
+      
+      <div *ngIf="picture; else noImage">
+        <img [src]="picture" width="300">
+      </div>
+      <ng-template #noImage>
+        No image
+      </ng-template>
+      
+</div>

@@ -1,0 +1,10 @@
+export interface WeatherData {
+    main: string
+    description: string
+    icon: string
+}
+
+export interface WeatherQuery {
+    city: string
+    units: string
+}

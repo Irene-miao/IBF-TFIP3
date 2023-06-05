@@ -1,0 +1,37 @@
+<div>
+    <table>
+        <tr>
+            <th>Upload more image</th>
+        </tr>
+        <tr>
+            <td>
+                <button [routerLink]="['/']">Upload</button>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <th>
+                List of Images
+            </th>
+        </tr>
+        <tr *ngIf="images$; else noImages">
+            <td *ngIf="images$ | async as image">
+                <ul *ngFor="let i of image.keys">
+                    <a [routerLink]="['/detail', i]"><li>{{i}}</li></a>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <ng-template #noImages>
+                no images
+            </ng-template>
+        </tr>
+    </table>
+</div>
+
+
+    
+
+

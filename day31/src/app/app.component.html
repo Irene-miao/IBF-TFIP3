@@ -1,0 +1,35 @@
+
+<!-- if no generated array of 5 numbers, display text-->
+<div *ngIf="selectedNums.length > 0;else noSelection">
+    <span *ngFor="let n of selectedNums">{{n }}</span>
+
+</div>
+ <!-- click button generate array of 5 random numbers below 30-->
+ <div>
+  <button type="button" (click)="generateNums()">Generate</button>
+</div>
+<!-- array of 5 numbers iterated input into value variable in nums component -->
+<!-- mouse hover nums component number ++, mouse leave nums component change back, mouse click,
+output a value into app component valueSelected()-->
+<app-nums *ngFor="let v of values" [value]="v" (onSelected)="valueSelected(v)"></app-nums>
+
+
+<ng-template #noSelection>
+  <h3>Please select your numbers</h3>
+  </ng-template>
+
+  
+
+
+
+<!--
+<app-pic-frame [image]="pics[0]" altText="my pic">
+</app-pic-frame>
+<app-pic-carousel title="List of my pictures" [pictures]="pics"></app-pic-carousel>
+<app-pic-frame [image]="pics[0]" altText="my pic">
+</app-pic-frame>
+<app-pic-frame
+  [image]="pics[1]"
+  altText="my text">
+</app-pic-frame>
+-->
